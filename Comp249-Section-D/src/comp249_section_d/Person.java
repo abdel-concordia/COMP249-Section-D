@@ -13,7 +13,7 @@ public class Person {
     public Person(String name, int age, Address address) {
         this.name = name;
         this.age = age;
-        this.address = address;
+        this.address = address; // Shallow copy
         System.out.println("Main constructor called.");
     }
 
@@ -23,9 +23,9 @@ public class Person {
         System.out.println("Default constructor called");
     }
 
-    // COpy constructor
+    // Copy constructor
     public Person(Person otherPerson) {
-        this(otherPerson.name, otherPerson.age, otherPerson.address);
+        this(otherPerson.name, otherPerson.age, new Address(otherPerson.address)); // With a Deep Copy
     }
 
     public void setName(String name) {
@@ -36,7 +36,7 @@ public class Person {
         this.age = age;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -44,12 +44,12 @@ public class Person {
         return this.name;
     }
 
-    public String toString() {
-        return "This is " + this.name;
+    public Address getAddress() {
+        return this.address;
     }
 
-    public String f(double d) {
-        return "My age is " + this.age;
+    public String toString() {
+        return "This is " + this.name;
     }
 
 }
