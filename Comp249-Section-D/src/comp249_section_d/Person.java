@@ -1,9 +1,9 @@
 package comp249_section_d;
 
-public class Person {
+public class Person extends Object {
 
     // Name: String
-    private String name;
+    protected String name;
     // Age: int
     private int age;
     // Address: String
@@ -48,8 +48,37 @@ public class Person {
         return this.address;
     }
 
+    public int getAge() {
+        return this.age;
+    }
+
+    @Override
     public String toString() {
-        return "This is " + this.name;
+        return "this is " + this.name;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Person other = (Person) obj;
+
+        return this.age == other.age;
+
+    }
+
+    public final void f() {
+
+    }
+
+    void g() {
+
     }
 
 }
