@@ -1,4 +1,4 @@
-package comp249_section_d;
+package old_code;
 
 public class Student extends Person {
 
@@ -34,6 +34,10 @@ public class Student extends Person {
         }
     }
 
+    public double getGPA() {
+        return this.gpa;
+    }
+
     @Override
     public String toString() {
         super.toString();
@@ -41,8 +45,8 @@ public class Student extends Person {
     }
 
     @Override
-    public void g() {
-
+    public void f() {
+        System.out.println("This is method f in Student.");
     }
 
 }

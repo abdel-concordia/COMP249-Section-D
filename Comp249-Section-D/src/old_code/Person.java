@@ -1,4 +1,4 @@
-package comp249_section_d;
+package old_code;
 
 public class Person extends Object {
 
@@ -73,12 +73,8 @@ public class Person extends Object {
 
     }
 
-    public final void f() {
-
-    }
-
-    void g() {
-
+    public void f() {
+        System.out.println("THis is method f in Person");
     }
 
 }
