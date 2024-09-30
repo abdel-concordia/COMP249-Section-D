@@ -1,4 +1,6 @@
-package comp249_section_d;
+package old_code;
+
+import old_code.Animal;
 
 public class Fish extends Animal {
 
