@@ -37,6 +37,7 @@ public class Triangle extends Shape {
         return this.side3;
     }
 
+    
     @Override
     public String toString() {
         return super.toString() + " with sides: " + this.side1 + ", " + this.side2 + ", " + this.side3;
@@ -46,4 +47,5 @@ public class Triangle extends Shape {
     public double getPerimeter() {
         return side1 + side2 + side3;
     }
+    
 }

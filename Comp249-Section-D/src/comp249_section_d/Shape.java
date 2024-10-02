@@ -1,6 +1,6 @@
 package comp249_section_d;
 
-public class Shape {
+public abstract class Shape {
 
     protected String name;
 
@@ -15,13 +15,13 @@ public class Shape {
     public String getName() {
         return this.name;
     }
+    
 
     @Override
     public String toString() {
         return "This is a " + this.name;
     }
 
-    public double getPerimeter() {
-        return -1;
-    }
+    public abstract double getPerimeter();
+
 }
