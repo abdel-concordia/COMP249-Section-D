@@ -1,4 +1,6 @@
-package comp249_section_d;
+package old_code;
+
+import old_code.Shape;
 
 public class Circle extends Shape {
 

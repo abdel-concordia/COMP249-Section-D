@@ -4,26 +4,69 @@ public class MainClass {
 
     public static void main(String[] args) {
 
-        final int NUMBER_OF_SHAPES = 3;
-        Shape[] myShapes = new Shape[NUMBER_OF_SHAPES];
-        myShapes[0] = new Triangle("Triangle", 1.5, 1.7, 2);  // This is a triangle
-        myShapes[1] = new Circle("Circle", 5.4);
-        myShapes[2] = new Rectangle("Rec", 2.5, 3.7);
+        A a1 = new A();
+        System.out.println(a1);
 
-        Triangle t = (Triangle) myShapes[0];
+        A b1 = new B();
+        System.out.println(b1);
 
-        Triangle o = (Triangle) myShapes[0]; // This is still a triangle
+        A a2 = new A(b1); // Copy constructor (static/early binding)
+        A a3 = b1.clone();  // clone is a method (dynamic/late binding)
 
-        for (Shape s : myShapes) { // Enhanced loop
-            System.out.println(s.getPerimeter());
-        }
+        System.out.println(a2);
+        System.out.println(a3);
 
-        /*
-        for (int i = 0; i < NUMBER_OF_SHAPES; i++) {
-            //Shape s = myShapes[i];
-            System.out.println(myShapes[i]);
-        }
-         */
+        A b3 = (B) b1;
+
     }
 
+}
+
+class A {
+
+    int number1;
+
+    public A() {
+        System.out.println("Default constructor of A");
+    }
+
+    public A(A a) {
+        System.out.println("Copy constructor of A.");
+    }
+
+    @Override
+    public String toString() {
+        return "This is an object of class A.";
+    }
+
+    @Override
+    public A clone() {
+        System.out.println("Clone from A.");
+        return new A(this);
+    }
+
+}
+
+class B extends A {
+
+    int number2;
+
+    public B() {
+        System.out.println("Default constructor of B.");
+    }
+
+    public B(B b) {
+        System.out.println("Copy constructor of B.");
+    }
+
+    @Override
+    public String toString() {
+        return "This is an object of class B.";
+    }
+
+    @Override
+    public B clone() {
+        System.out.println("Clone from B");
+        return new B(this);
+    }
 }
