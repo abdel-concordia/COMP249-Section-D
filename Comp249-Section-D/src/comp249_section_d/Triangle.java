@@ -12,6 +12,13 @@ public class Triangle extends Shape {
         this.side2 = side2;
         this.side3 = side3;
     }
+    
+    public Triangle(Triangle otherTriangle){
+        super(otherTriangle.name); // String is immutable
+        this.side1=otherTriangle.side1;
+        this.side2=otherTriangle.side2;
+        this.side3=otherTriangle.side3;
+    }
 
     public void setSide1(double side1) {
         this.side1 = side1;
@@ -48,4 +55,8 @@ public class Triangle extends Shape {
         return side1 + side2 + side3;
     }
     
+    @Override 
+    protected Object clone(){
+        return (Object) new Triangle(this);
+    }
 }

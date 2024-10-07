@@ -15,7 +15,6 @@ public abstract class Shape {
     public String getName() {
         return this.name;
     }
-    
 
     @Override
     public String toString() {
@@ -23,5 +22,4 @@ public abstract class Shape {
     }
 
     public abstract double getPerimeter();
-
 }
