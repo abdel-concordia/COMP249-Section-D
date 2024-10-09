@@ -1,4 +1,6 @@
-package old_code;
+package comp249_section_d;
+
+import java.util.InputMismatchException;
 
 public class Person extends Object {
 
@@ -10,21 +12,25 @@ public class Person extends Object {
     private Address address;
 
     // (Fully)Parametrize constructor
-    public Person(String name, int age, Address address) {
+    public Person(String name, int age, Address address) throws InputMismatchException, NullPointerException {
         this.name = name;
+        if (age < 0) {
+            InputMismatchException exceptionObject = new InputMismatchException("Age must be positive!");
+            throw exceptionObject;
+        }
         this.age = age;
         this.address = address; // Shallow copy
         System.out.println("Main constructor called.");
     }
 
     // Default constructor
-    public Person() {
+    public Person() throws Exception {
         this("Unknown name", 0, new Address());
         System.out.println("Default constructor called");
     }
 
     // Copy constructor
-    public Person(Person otherPerson) {
+    public Person(Person otherPerson) throws Exception {
         this(otherPerson.name, otherPerson.age, new Address(otherPerson.address)); // With a Deep Copy
     }
 

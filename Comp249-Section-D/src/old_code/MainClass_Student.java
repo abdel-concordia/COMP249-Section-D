@@ -1,5 +1,8 @@
 package old_code;
 
+import comp249_section_d.Address;
+import comp249_section_d.Person;
+
 public class MainClass_Student {
 
     public static void main(String[] args) {
