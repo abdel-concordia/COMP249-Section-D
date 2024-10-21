@@ -10,7 +10,7 @@ public class Course {
         this.code = code;
         this.title = title;
         if (creditPoints < 0 || creditPoints > 5) {
-            throw new ValidCreditPointsException("Wrong credit points", 0, 6);
+            throw new ValidCreditPointsException("Wrong credit points");
         }
         this.creditPoints = creditPoints;
     }
