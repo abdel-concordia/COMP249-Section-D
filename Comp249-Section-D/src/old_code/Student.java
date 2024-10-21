@@ -1,8 +1,5 @@
 package old_code;
 
-import comp249_section_d.Address;
-import comp249_section_d.Person;
-
 public class Student extends Person {
 
     private String ID;

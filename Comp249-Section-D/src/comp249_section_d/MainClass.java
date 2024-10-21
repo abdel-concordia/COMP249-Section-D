@@ -1,20 +1,36 @@
 package comp249_section_d;
 
-import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class MainClass {
 
     public static void main(String[] args) {
-        Address address = new Address(50, "St Catherine", "H3G...");
 
-        try {
-            Person person = new Person("John", -15, address);
-        } catch (InputMismatchException imex) {
-            System.out.println(imex.getMessage());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            System.out.println("Thank you for using this program");
+        Course comp249 = null;
+        boolean done = false;
+        while (!done) {
+            try {
+                Scanner sc = new Scanner(System.in);
+
+                System.out.print("Please input course code: ");
+                String code = sc.nextLine();
+                System.out.print("Please input course title: ");
+
+                String title = sc.nextLine();
+                System.out.print("Please input course CP: ");
+
+                double cp = sc.nextDouble();
+
+                comp249 = new Course(code, title, cp);
+                System.out.println(comp249.getCreditPoints());
+                done = true;
+            } catch (ValidCreditPointsException ex) {
+                System.out.println("Error while creating course: " + ex.getMessage());
+
+            }
+
+            System.out.println("Good bye.");
         }
     }
+
 }
