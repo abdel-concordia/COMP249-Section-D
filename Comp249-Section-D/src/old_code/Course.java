@@ -1,4 +1,4 @@
-package comp249_section_d;
+package old_code;
 
 public class Course {
 
