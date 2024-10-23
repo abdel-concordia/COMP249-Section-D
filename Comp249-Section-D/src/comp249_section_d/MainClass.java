@@ -1,49 +1,35 @@
 package comp249_section_d;
 
+import java.util.Scanner;
+import java.io.FileInputStream;
+
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
-import java.io.FileInputStream;
-
-import java.util.Scanner;
 
 public class MainClass {
 
     public static void main(String[] args) {
 
-        /*
-        // Write
-        PrintWriter printWriter = null;
+        Scanner inputStrem = null;
+        PrintWriter outputStream1 = null;
+        PrintWriter outputStream2 = null;
+
         try {
-            printWriter = new PrintWriter(new FileOutputStream("file.txt"));
-        } catch (FileNotFoundException ex) {
-            System.out.println("File not found and cannot be created.");
-            System.exit(0);
-        }
+            inputStrem = new Scanner(new FileInputStream("data.txt"));
+            outputStream1 = new PrintWriter(new FileOutputStream("file1.txt"));
+            outputStream2 = new PrintWriter(new FileOutputStream("file2.txt"));
 
-        printWriter.println("Hello 1"); // "\r\n"
-        printWriter.println("Hello 2");
-        printWriter.println("Hello 3");
-        printWriter.println("Hello 4");
-
-        printWriter.close();
-
-         */
-        // Read
-        Scanner sc = null;
-        try {
-            sc = new Scanner(new FileInputStream("file.txt"));
+            while () {
+                // read from datat.txt
+                // if gpa >= 3, write to file1.txt
+                // else write to file2.txt
+            }
         } catch (FileNotFoundException fnfe) {
-            System.out.println("Input file not found.");
-            System.exit(0);
+            System.out.println("Cannot open file.");
+            System.exit(1);
         }
 
-        while (sc.hasNextInt()) {
-            String s = sc.nextLine();
-            System.out.println(s);
-        }
-
-        sc.close();
     }
 
 }
