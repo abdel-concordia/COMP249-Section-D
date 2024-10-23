@@ -5,10 +5,10 @@ public class ValidCreditPointsException extends Exception {
     private double minCP;
     private double maxCP;
 
-    public ValidCreditPointsException(String message, double minCP, double maxCP) {
+    public ValidCreditPointsException(String message) {
         super(message);
-        this.minCP = minCP;
-        this.maxCP = maxCP;
+        this.minCP = 0;
+        this.maxCP = 6;
     }
 
     public double getMinCP() {
