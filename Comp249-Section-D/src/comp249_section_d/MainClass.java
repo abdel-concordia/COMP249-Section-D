@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MainClass {
 
@@ -72,6 +74,8 @@ public class MainClass {
 
         } catch (IOException ioex) {
 
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         System.out.println("Good bye!");
