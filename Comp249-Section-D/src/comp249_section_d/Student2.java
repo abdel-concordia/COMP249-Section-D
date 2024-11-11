@@ -29,4 +29,5 @@ public class Student2 implements Comparable {
             return 0;
         }
     }
+
 }
