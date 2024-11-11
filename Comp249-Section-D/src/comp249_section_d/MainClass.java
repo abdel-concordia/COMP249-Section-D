@@ -1,27 +1,15 @@
 package comp249_section_d;
 
+import java.util.ArrayList;
+
 public class MainClass {
 
     public static void main(String[] args) { // Static context
 
-        I1 obj = new I1() {
+        ArrayList<String> names = new ArrayList<>(5);
 
-            @Override
-            public int f() {
-                return 0;
-            }
-        };
+        names.add("John");
 
     }
 
-}
-
-
-
-}
-
-
-interface I1 {
-
-    public int f();
 }
