@@ -2,16 +2,26 @@ package comp249_section_d;
 
 public class MainClass {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // Static context
 
-        Student2 s1 = new Student2(3.4);
-        Student2 s2 = new Student2(4.0);
+        I1 obj = new I1() {
 
-        s1.equals(s2); // gives true
+            @Override
+            public int f() {
+                return 0;
+            }
+        };
 
-        String str = new String("Hello");
-
-        s1.compareTo(str); // 0
     }
 
+}
+
+
+
+}
+
+
+interface I1 {
+
+    public int f();
 }
