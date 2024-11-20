@@ -2,7 +2,7 @@ package comp249_section_d;
 
 public class LinkedList1 {
 
-    private Node head;
+    private Node1 head;
     private int numberOfElements;
 
     public LinkedList1() {
@@ -11,7 +11,7 @@ public class LinkedList1 {
     }
 
     public void addAtHead(int data) {
-        head = new Node(data, head);
+        head = new Node1(data, head);
         numberOfElements++;
     }
 
@@ -20,31 +20,95 @@ public class LinkedList1 {
             addAtHead(data);
         } else {
             // Go all the way from head to last element
-            Node temp = head;
+            Node1 temp = head;
             while (temp.getReferenceToFollowingElement() != null) {
                 temp = temp.getReferenceToFollowingElement();
             }
 
-            Node n = new Node(data, null);
+            Node1 n = new Node1(data, null);
             temp.setReferenceToFollowingElement(n);
             numberOfElements++;
         }
     }
 
-    public void addAfter(int data, int elementValue) {
-        // list is empty/not empty
-        // elementValue is/isn't in the list (if elementValue is not in the list, we don't add)
+    // elementValue is/isn't in the list (if elementValue is not in the list, we don't add)
+    public void addAfter(int data, int referenceValue) {
+        if (head != null) {
+            Node1 temp = head;
+            while (temp != null && temp.getData() != referenceValue) {
+                temp = temp.getReferenceToFollowingElement();
+            }
+            if (temp != null) {
+                Node1 n = new Node1(data, temp.getReferenceToFollowingElement());
+                temp.setReferenceToFollowingElement(n);
+                numberOfElements++;
+            }
+        }
     }
 
+    // Add before a value
     // delete from head
+    public Node1 removeFromHead() {
+        if (head != null) {
+            Node1 temp = head;
+            head = head.getReferenceToFollowingElement();
+            numberOfElements--;
+            temp.setReferenceToFollowingElement(null); // Sanitization
+            return temp;
+        } else {
+            return null;
+        }
+    }
+
     // delete the last one
+    public Node1 removeTail() {
+        if (head != null) {
+            if (head.getReferenceToFollowingElement() == null) {
+                return removeFromHead();
+            } else {
+                Node1 temp = head;
+
+                while (temp.getReferenceToFollowingElement().getReferenceToFollowingElement() != null) {
+                    temp = temp.getReferenceToFollowingElement();
+                }
+
+                Node1 n = temp.getReferenceToFollowingElement();
+                temp.setReferenceToFollowingElement(null);
+                n.setReferenceToFollowingElement(null); // Sanitization
+                numberOfElements--;
+                return n;
+            }
+        } else {
+            return null;
+        }
+    }
+
     // delete a specific value
+    public void removeData(int data) {
+        if (head != null) {
+            if (head.getData() == data) {
+                removeFromHead();
+            } else {
+                Node1 temp = head;
+                while (temp.getReferenceToFollowingElement() != null && temp.getReferenceToFollowingElement().getData() != data) {
+                    temp = temp.getReferenceToFollowingElement();
+                }
+                if (temp.getReferenceToFollowingElement() != null) {
+                    temp.setReferenceToFollowingElement(temp.getReferenceToFollowingElement().getReferenceToFollowingElement());
+                    numberOfElements--;
+                }
+
+            }
+        }
+
+    }
+
     public void display() {
         if (head == null) {
             System.out.println("No data to display");
         } else {
             System.out.println("Here are your data: ");
-            Node temp = head;
+            Node1 temp = head;
             while (temp != null) {
                 // display data
                 System.out.print(temp.getData() + "  ");
@@ -62,7 +126,7 @@ public class LinkedList1 {
     // Size without using a counter
     public int size2() {
         int counter = 0;
-        Node temp = head;
+        Node1 temp = head;
         while (temp != null) {
             counter++;
             temp = temp.getReferenceToFollowingElement();

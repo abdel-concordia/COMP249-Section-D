@@ -1,25 +1,22 @@
 package comp249_section_d;
 
-import java.util.ArrayList;
-
 public class MainClass {
 
     public static void main(String[] args) { // Static context
 
-        ArrayList<String> names = new ArrayList<>(20); // int: primitive type | Integer: a class that can hold int value
+        LinkedList2 myList = new LinkedList2();
 
-        names.add("John"); // add at the end
-        names.add("Jane");
-        names.add("Ali");
+        myList.addAtTail(7);
+        myList.addAtTail(20);
+        myList.addAfter(10, 7);
 
-        names.add(1, "Michel"); // adds at specified position
+        Node2 n = myList.removeFromHead();
 
-        //names.remove("Ali");
-        System.out.println(names);
+        n.getReferenceToFollowingElement().setReferenceToFollowingElement(null);
 
-//        for (int i = 0; i < names.size(); i++) {
-//            System.out.println(names.get(i));
-//        }
+        System.out.println("You have " + myList.size1() + " elements.");
+        myList.display();
+
     }
 
 }
