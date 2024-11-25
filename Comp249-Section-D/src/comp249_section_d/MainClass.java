@@ -4,17 +4,15 @@ public class MainClass {
 
     public static void main(String[] args) { // Static context
 
-        LinkedList2 myList = new LinkedList2();
+        DoublyLinkedList1 dll = new DoublyLinkedList1();
 
-        myList.addAtTail(7);
-        myList.addAtTail(20);
-        myList.addAfter(10, 7);
-
-        int v = myList.removeFromHead();
-
-        System.out.println("You have " + myList.size1() + " elements.");
-        myList.display();
-
+        //dll.addAtHead(5);
+        dll.addAtTail(5);
+        //dll.addAtTail(70);
+        //dll.addAtHead(10);
+        dll.addAfter(10, 5);
+        dll.displayFromHeadToTail();
+        //dll.displayFromTailToHead();
     }
 
 }
