@@ -3,15 +3,20 @@ package comp249_section_d;
 public class LinkedList2 {
 
     private Node2 head;
+    private Node2 tail;
     private int numberOfElements;
 
     public LinkedList2() {
         head = null;
+        tail = null;
         numberOfElements = 0;
     }
 
     public void addAtHead(int data) {
         head = new Node2(data, head);
+        if (head.link == null) {
+            tail = head;
+        }
         numberOfElements++;
     }
 
@@ -19,29 +24,29 @@ public class LinkedList2 {
         if (head == null) {
             addAtHead(data);
         } else {
-            // Go all the way from head to last element
-            Node2 temp = head;
-            while (temp.link != null) {
-                temp = temp.link;
-            }
-
             Node2 n = new Node2(data, null);
-            temp.link = n;
+            tail.link = n;
+            tail = n;
             numberOfElements++;
         }
     }
 
-    // elementValue is/isn't in the list (if elementValue is not in the list, we don't add)
+    // if elementValue is not in the list, we don't add
     public void addAfter(int data, int referenceValue) {
         if (head != null) {
             Node2 temp = head;
             while (temp != null && temp.data != referenceValue) {
                 temp = temp.link;
             }
+
             if (temp != null) {
                 Node2 n = new Node2(data, temp.link);
                 temp.link = n;
                 numberOfElements++;
+                if (temp == tail) {
+                    tail = n;
+                }
+
             }
         }
     }
@@ -53,6 +58,10 @@ public class LinkedList2 {
             Node2 temp = head;
             head = head.link;
             numberOfElements--;
+
+            if (head == null) {
+                tail = null;
+            }
 
             return temp.data;
         } else {
@@ -75,6 +84,7 @@ public class LinkedList2 {
                 Node2 n = temp.link;
 
                 temp.link = null;
+                tail = temp;
                 numberOfElements--;
                 return n.data;
             }
@@ -143,7 +153,6 @@ public class LinkedList2 {
             this.data = data;
             this.link = link;
         }
-
     }
 
 }

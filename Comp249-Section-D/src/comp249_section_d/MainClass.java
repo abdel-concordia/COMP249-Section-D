@@ -10,9 +10,7 @@ public class MainClass {
         myList.addAtTail(20);
         myList.addAfter(10, 7);
 
-        Node2 n = myList.removeFromHead();
-
-        n.getReferenceToFollowingElement().setReferenceToFollowingElement(null);
+        int v = myList.removeFromHead();
 
         System.out.println("You have " + myList.size1() + " elements.");
         myList.display();
