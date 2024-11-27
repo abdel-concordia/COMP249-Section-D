@@ -13,10 +13,14 @@ public class DoublyLinkedList1 {
     }
 
     public void addAtHead(int data) {
+
         // Create the new node
         Node n = new Node(data, null, head);
 
-        // Update head
+        if (head != null) {
+            head.previous = n;
+        }
+
         head = n;
 
         // May be, update tail
@@ -49,7 +53,6 @@ public class DoublyLinkedList1 {
     }
 
     public void addAfter(int data, int referenceValue) {
-
         if (head == null) {
             return;
         }
@@ -81,16 +84,68 @@ public class DoublyLinkedList1 {
                 numberOfElements = 0;
                 return v;
             } else {
-
+                int v = head.data;
+                head = head.next;
+                head.previous = null;
+                numberOfElements--;
+                return v;
             }
+        }
+        return -1;
+    }
+
+    public int deleteFromTail() {
+        if (head != null) {
+            if (head == tail) {
+                int v = head.data;
+                head = null;
+                tail = null;
+                numberOfElements = 0;
+                return v;
+            } else {
+                int v = tail.data;
+                tail = tail.previous;
+                tail.next = null;
+                numberOfElements--;
+                return v;
+            }
+        }
+        return -1;
+    }
+
+    public boolean deleteValue(int value) {
+        // Find value
+        Node temp = head;
+        while (temp != null && temp.data != value) {
+            temp = temp.next;
+        }
+
+        // Delete value
+        if (temp != null) {
+            if (temp == head) {
+                deleteFromHead();
+                return true;
+            } else if (temp == tail) {
+                deleteFromTail();
+                return true;
+            } else {
+                //set next before temp
+                temp.previous.next = temp.next;
+                // set previous after temp
+                temp.next.previous = temp.previous;
+                numberOfElements--;
+                return true;
+            }
+        } else {
+            return false;
         }
     }
 
     public void displayFromTailToHead() {
+        System.out.print("Display tail to head: ");
         if (tail == null) {
             System.out.println("No data to display");
         } else {
-            System.out.println("Here are your data: ");
             Node temp = tail;
             while (temp != null) {
                 // display data
@@ -102,10 +157,10 @@ public class DoublyLinkedList1 {
     }
 
     public void displayFromHeadToTail() {
+        System.out.print("Display head to tail: ");
         if (head == null) {
             System.out.println("No data to display");
         } else {
-            System.out.println("Here are your data: ");
             Node temp = head;
             while (temp != null) {
                 // display data

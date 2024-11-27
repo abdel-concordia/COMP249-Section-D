@@ -4,15 +4,14 @@ public class MainClass {
 
     public static void main(String[] args) { // Static context
 
-        DoublyLinkedList1 dll = new DoublyLinkedList1();
+        CircularLinkedList1 cList = new CircularLinkedList1();
 
-        //dll.addAtHead(5);
-        dll.addAtTail(5);
-        //dll.addAtTail(70);
-        //dll.addAtHead(10);
-        dll.addAfter(10, 5);
-        dll.displayFromHeadToTail();
-        //dll.displayFromTailToHead();
+        cList.addAtHead(30);
+        cList.addAtHead(20);
+        cList.addAtHead(10);
+        cList.addAtHead(5);
+        cList.displayElements();
+
     }
 
 }
