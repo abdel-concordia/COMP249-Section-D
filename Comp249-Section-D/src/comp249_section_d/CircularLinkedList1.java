@@ -1,6 +1,6 @@
 package comp249_section_d;
 
-public class CircularLinkedList1 {
+public class CircularLinkedList1<T> {
 
     private Node head;
     private Node tail;
@@ -12,7 +12,7 @@ public class CircularLinkedList1 {
         numberOfElements = 0;
     }
 
-    public void addAtHead(int value) {
+    public void addAtHead(T value) {
         Node n = new Node(value, head);
 
         if (head == null) {
@@ -30,6 +30,9 @@ public class CircularLinkedList1 {
     // remove from head
     // remove from tail
     // remove value
+//    public boolean removeElement(T dataOfElementToRemove) {
+//        // use .equals
+//    }
     public void displayElements() {
         if (head == null) {
             System.out.println("No data to display");
@@ -45,10 +48,10 @@ public class CircularLinkedList1 {
 
     private class Node {
 
-        private int data; // Data, can be anything (can be generic)
+        private T data; // Data, can be anything (can be generic)
         private Node link;
 
-        public Node(int data, Node link) {
+        public Node(T data, Node link) {
             this.data = data;
             this.link = link;
         }
